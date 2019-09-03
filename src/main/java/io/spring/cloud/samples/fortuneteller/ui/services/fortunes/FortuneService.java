@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 @EnableConfigurationProperties(FortuneProperties.class)
@@ -39,6 +38,16 @@ public class FortuneService {
     }
 
     private Fortune fallbackFortune() {
+        return new Fortune(42L, fortuneProperties.getFallbackFortune());
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackFortunes")
+    public Fortune fortunes() {
+        String randomFortuneURL = fortuneProperties.getFortuneServiceURL().concat("/fortunes");
+        return restTemplate.getForObject(randomFortuneURL, Fortune.class);
+    }
+
+    private Fortune fallbackFortunes() {
         return new Fortune(42L, fortuneProperties.getFallbackFortune());
     }
 }

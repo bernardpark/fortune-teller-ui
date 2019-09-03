@@ -22,8 +22,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @RefreshScope
 public class FortuneProperties {
 
-	private String fallbackFortune = "Your future is unclear.";
-	private String fortuneServiceURL = "//fortune-service";
+	private String fallbackFortune = "API is not responding.";
+	private String fortuneServiceURL = "//fortune-api";
 
 	public String getFallbackFortune() {
 		return fallbackFortune;

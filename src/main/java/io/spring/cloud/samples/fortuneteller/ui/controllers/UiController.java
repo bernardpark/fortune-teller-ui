@@ -31,4 +31,9 @@ public class UiController {
     public Fortune randomFortune() {
         return service.randomFortune();
     }
+
+    @RequestMapping("/fortunes")
+    public Fortune fortunes() {
+        return service.fortunes();
+    }
 }
