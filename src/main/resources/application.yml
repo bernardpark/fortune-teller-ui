@@ -7,11 +7,6 @@ management:
       exposure:
         include: "*"
 
-#---
-#spring:
-#  profiles: cloud
-#  
-
 ---
 spring:
   profiles: pact

@@ -1,13 +1,13 @@
 ---
 applications:
-- name: bpark-fortune-ui
+- name: ((app_suffix))-fortune-ui
   memory: 1024M
   path: ./target/fortune-teller-ui-0.0.1-SNAPSHOT.jar
   instances: 1
   services:
-  - fortunes-config-server
-  - fortunes-service-registry
-  - fortunes-circuit-breaker-dashboard
-  - fortunes-cloud-bus
+  - ((config_server))
+  - ((service_registry))
+  - ((circuit_breaker))
+  - ((cloud_bus))
   env:
-    TRUST_CERTS: api.run.pcfone.io
+    TRUST_CERTS: ((cf_trust_certs))
