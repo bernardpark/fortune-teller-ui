@@ -1,7 +1,7 @@
 # Fortune Teller MicroServices - Fortune UI
 
 ## Overview
-This repository is a microservice of the larger Fortune Teller Application guided as a workshop. This is a JavaScript UI layer using Spring MVC to git the [Fortune API](https://github.com/bernardpark/fortune-teller-service) "backend for frontend".
+This repository is a microservice of the larger [Fortune Teller Application](https://github.com/msathe-tech/fortune-teller) guided as a workshop. This is a JavaScript UI layer using Spring MVC to git the [Fortune API](https://github.com/bernardpark/fortune-teller-service) "backend for frontend".
 
 ## Service Registry
 By including spring-cloud-services-starter-service-registry, your application will now be registered in your Service Registry service instance in Pivotal Cloud Foundry.
