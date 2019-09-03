@@ -1,0 +1,30 @@
+ribbon:
+  isSecure: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#---
+#spring:
+#  profiles: cloud
+#  
+
+---
+spring:
+  profiles: pact
+
+ribbon:
+  eureka:
+    enabled: false
+
+hystrix:
+  command:
+    randomFortune:
+      execution.isolation.thread.timeoutInMilliseconds: 2000
+
+fortunes:
+  ribbon:
+    listOfServers: localhost:8080
