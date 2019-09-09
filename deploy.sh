@@ -67,11 +67,11 @@ if [[ $CF_API == *"api.run.pivotal.io"* ]]; then
     cf create-service p-circuit-breaker-dashboard trial $CIRCUITBREAKER
     cf create-service cloudamqp lemur $CLOUDBUS
 else
-    if [ ! -z "`cf m | grep "p\.config-server"`" ]; then
-      export service_name="p.config-server"
-      export config_json="{\"git\": { \"uri\": \"https://github.com/bernardpark/fortune-teller-config\", \"label\": \"master\" } }"
-    elif [ ! -z "`cf m | grep "p-config-server"`" ]; then
+    if [ ! -z "`cf m | grep "p-config-server"`" ]; then
       export service_name="p-config-server"
+      export config_json="{\"git\": { \"uri\": \"https://github.com/bernardpark/fortune-teller-config\", \"label\": \"master\" } }"
+    elif [ ! -z "`cf m | grep "p\.config-server"`" ]; then
+      export service_name="p\.config-server"
       export config_json="{\"skipSslValidation\": true, \"git\": { \"uri\": \"https://github.com/bernardpark/fortune-teller-config\", \"label\": \"master\" } }"
     else
       echo "Can't find SCS Config Server in marketplace. Have you installed the SCS Tile?"

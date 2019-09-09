@@ -13,13 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package io.spring.cloud.samples.fortuneteller.ui.services.fortunes;
+package io.spring.cloud.samples.fortuneteller.ui.services.fortunes;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import io.spring.cloud.samples.fortuneteller.ui.services.fortunes.*;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Service
 @EnableConfigurationProperties(FortuneProperties.class)
@@ -33,7 +36,7 @@ public class FortuneService {
 
     @HystrixCommand(fallbackMethod = "fallbackFortune")
     public Fortune randomFortune() {
-        String randomFortuneURL = fortuneProperties.getFortuneServiceURL().concat("/random");
+        String randomFortuneURL = fortuneProperties.getApiURL().concat("/random");
         return restTemplate.getForObject(randomFortuneURL, Fortune.class);
     }
 
@@ -43,7 +46,7 @@ public class FortuneService {
 
     @HystrixCommand(fallbackMethod = "fallbackFortunes")
     public Fortune fortunes() {
-        String randomFortuneURL = fortuneProperties.getFortuneServiceURL().concat("/fortunes");
+        String randomFortuneURL = fortuneProperties.getApiURL().concat("/fortunes");
         return restTemplate.getForObject(randomFortuneURL, Fortune.class);
     }
 
