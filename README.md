@@ -21,12 +21,6 @@ Now take a look at `FortuneService.java`. The `randomFortune()` method, which is
 In the same `FortuneService.java` class, notice that the `randomFortune()` method is annotated with `@HystrixCommand( fallbackMethod = "fallbackFortune" )`. When this method fails, it falls back to the `fallbackFortune()` method below, to return a default response instead of an error code. This practice not only produces a non-critical error handler, but also helps implement a fail-fast methodology.
 
 ## Deploying the Application
-<a href="https://push-to.cfapps.io?repo=https%3A%2F%2Fgithub.com%2Fmsathe-tech%2Ffortune-teller.git">
-        <img src="https://push-to.cfapps.io/ui/assets/images/Push-to-Pivotal-Light.svg" width="200" alt="Push">
-</a>
-
-### Or
-
 Build and deploy application on current 'cf target'
 
 ```
