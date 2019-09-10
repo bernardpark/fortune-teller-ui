@@ -224,7 +224,7 @@ cf_trust_certs: $YOUR_PCF_API_ENDPOINT
 1. Push your application.
 
 ```
-cf push
+cf push --vars-file vars.yml
 ```
 
 Examine the manifest.yml file to review the application deployment configurations and service bindings.
