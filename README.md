@@ -258,7 +258,7 @@ Examine the manifest.yml file to review the application deployment configuration
 1. Notice the changed default fallback message
 
 ## Return to Workshop Respository
-[Fortune Teller Workshop](https://github.com/msathe-tech/fortune-teller)
+[Fortune Teller Workshop](https://github.com/msathe-tech/fortune-teller$lab4-add-a-ui)
 
 ## Authors
 * **Bernard Park** - [Github](https://github.com/bernardpark)
