@@ -25,7 +25,7 @@ import io.spring.cloud.samples.fortuneteller.ui.services.fortunes.*;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @Service
-@EnableConfigurationProperties(FortuneProperties.class)
+//@EnableConfigurationProperties(FortuneProperties.class)
 public class FortuneService {
 
     @Autowired
@@ -34,23 +34,23 @@ public class FortuneService {
     @Autowired
     RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "fallbackFortune")
-    public Fortune randomFortune() {
-        String randomFortuneURL = fortuneProperties.getApiURL().concat("/random");
-        return restTemplate.getForObject(randomFortuneURL, Fortune.class);
-    }
-
-    private Fortune fallbackFortune() {
-        return new Fortune(42L, fortuneProperties.getFallbackFortune());
-    }
-
-    @HystrixCommand(fallbackMethod = "fallbackFortunes")
-    public Fortune fortunes() {
-        String randomFortuneURL = fortuneProperties.getApiURL().concat("/fortunes");
-        return restTemplate.getForObject(randomFortuneURL, Fortune.class);
-    }
-
-    private Fortune fallbackFortunes() {
-        return new Fortune(42L, fortuneProperties.getFallbackFortune());
-    }
+//    @HystrixCommand(fallbackMethod = "fallbackFortune")
+//    public Fortune randomFortune() {
+//        String randomFortuneURL = fortuneProperties.getApiURL().concat("/random");
+//        return restTemplate.getForObject(randomFortuneURL, Fortune.class);
+//    }
+//
+//    private Fortune fallbackFortune() {
+//        return new Fortune(42L, fortuneProperties.getFallbackFortune());
+//    }
+//
+//    @HystrixCommand(fallbackMethod = "fallbackFortunes")
+//    public Fortune fortunes() {
+//        String randomFortuneURL = fortuneProperties.getApiURL().concat("/fortunes");
+//        return restTemplate.getForObject(randomFortuneURL, Fortune.class);
+//    }
+//
+//    private Fortune fallbackFortunes() {
+//        return new Fortune(42L, fortuneProperties.getFallbackFortune());
+//    }
 }

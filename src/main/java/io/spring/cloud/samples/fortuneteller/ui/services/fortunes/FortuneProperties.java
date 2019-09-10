@@ -18,8 +18,8 @@
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
-@ConfigurationProperties(prefix = "api")
-@RefreshScope
+//@ConfigurationProperties(prefix = "api")
+//@RefreshScope
 public class FortuneProperties {
 
 	private String fallbackFortune = "API is not responding.";
